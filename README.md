@@ -220,54 +220,6 @@ MESSAGE_MODE=simulation
 
 The AWS integration is implemented in `server/awsService.js`:
 
-#### SMS Sending (Amazon SNS)
-
-```javascript
-// server/awsService.js (SMS implementation)
-import { SNSClient, PublishCommand } from '@aws-sdk/client-sns';
-
-const snsClient = new SNSClient({ 
-  region: AWS_REGION,
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-  }
-});
-
-export async function sendSMS(phoneNumber, message) {
-  const params = {
-    Message: message,
-    PhoneNumber: phoneNumber,
-    MessageAttributes: {
-      'AWS.SNS.SMS.SenderID': {
-        DataType: 'String',
-        StringValue: 'GymAlert'
-      },
-      'AWS.SNS.SMS.SMSType': {
-        DataType: 'String',
-        StringValue: 'Transactional'
-      }
-    }
-  };
-
-  const command = new PublishCommand(params);
-  const response = await snsClient.send(command);
-  
-  return {
-    success: true,
-    messageId: response.MessageId,
-    phoneNumber,
-    timestamp: new Date().toISOString()
-  };
-}
-```
-
-**Key Features**:
-- Uses AWS SDK v3 (@aws-sdk/client-sns)
-- E.164 phone number format required (e.g., +15551234567)
-- Transactional SMS type for better deliverability
-- Custom sender ID: "GymAlert"
-
 #### Email Sending (Amazon SES)
 
 ```javascript
@@ -331,19 +283,6 @@ export async function sendEmail(toEmail, subject, htmlBody, textBody) {
 function getSandboxErrorMessage(error) {
   const errorName = error.name || '';
   const errorMessage = error.message || '';
-
-  if (errorName === 'OptInRequired' || errorMessage.includes('Opt In')) {
-    return {
-      issue: 'SNS SMS Sandbox Mode',
-      solution: 'Verify phone numbers in AWS SNS console or request production access',
-      steps: [
-        '1. Go to AWS SNS Console',
-        '2. Navigate to Text messaging (SMS) > Sandbox destination phone numbers',
-        '3. Add and verify the recipient phone number',
-        '4. Or request production access to send to any number'
-      ]
-    };
-  }
 
   if (errorName === 'MessageRejected' || errorMessage.includes('Email address is not verified')) {
     return {
@@ -524,26 +463,18 @@ function getSandboxErrorMessage(error) {
 **Problem**: SES is in sandbox mode  
 **Solution**: 
 - Verify both sender and recipient emails in SES console
-- OR request production access (takes 24-48 hours)
 
-#### Issue 2: "Phone number not verified" / "Opt-in required"
-**Problem**: SNS is in sandbox mode  
-**Solution**: 
-- Add and verify the phone number in SNS console
-- OR request production access for SMS
-
-#### Issue 3: "Invalid security token" / "Access Denied"
+#### Issue 2: "Invalid security token" / "Access Denied"
 **Problem**: Incorrect AWS credentials or missing permissions  
 **Solution**: 
 - Double-check credentials in `.env` file
 - Verify IAM user has required policies (SNSFullAccess, SESFullAccess)
 - Restart the server after updating `.env`
 
-#### Issue 4: Messages sent but not received
-**Problem**: May be in spam folder or carrier blocked  
+#### Issue 3: Messages sent but not received
+**Problem**: May be in spam folder  
 **Solution**: 
 - Check spam/junk folder for emails
-- For SMS, verify phone number is mobile (not landline)
 - Check AWS CloudWatch logs for delivery status
 
 ### Cost Estimate
@@ -555,8 +486,6 @@ function getSandboxErrorMessage(error) {
 **After Free Tier**:
 - SES: $0.10 per 1,000 emails
 - SNS: $0.00645 per SMS (US)
-
-**For this project**: You'll stay well within free tier limits during testing/development.
 
 ---
 
@@ -581,44 +510,3 @@ gym-membership/
 ```
 
 ---
-
-## Security Notes
-
-⚠️ **Important Security Practices**:
-
-1. **Never commit `.env` file to Git** (already in `.gitignore`)
-2. **Never share your AWS secret access key**
-3. **Delete access keys after assignment completion**
-4. **Rotate keys regularly in production**
-5. **Use least-privilege IAM policies**
-
----
-
-## Submission Checklist
-
-For assignment submission, include:
-
-- [ ] This README file
-- [ ] Screenshot of AWS account dashboard
-- [ ] Screenshot of IAM user with policies
-- [ ] Screenshot of verified email in SES
-- [ ] Screenshot of verified phone in SNS
-- [ ] Screenshot of `.env` file (HIDE secret key!)
-- [ ] Screenshot of app showing simulation results
-- [ ] Screenshot of app showing AWS send results (or sandbox errors)
-- [ ] Screenshot of received email (if successful)
-- [ ] Code files (server/awsService.js, server/index.js)
-- [ ] `messages_log.json` with test results
-
-**Note**: Even if you encounter sandbox limitations and cannot send real messages, documenting the setup process, showing the error handling, and explaining the sandbox restrictions demonstrates full understanding of the AWS integration.
-
----
-
-## License
-
-MIT License - Free to use and modify
-
----
-
-**Questions?** This is a learning prototype designed for demonstration purposes. The code is fully functional and production-ready with proper AWS account configuration.
-"# gym-membership" 
