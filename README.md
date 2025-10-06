@@ -496,4 +496,3 @@ gym-membership/
 ```
 ## VIDEO DEMONSTRATION
 (https://youtu.be/oeXUYSBskTA)
----
