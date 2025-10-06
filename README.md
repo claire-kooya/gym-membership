@@ -390,13 +390,6 @@ function getSandboxErrorMessage(error) {
   "steps": [...]
 }
 ```
-
-**Screenshots needed**:
-- Dashboard showing send results (success or error)
-- Email received in inbox (if successful)
-- SMS received on phone (if successful)
-- Error messages with helpful guidance (if sandbox blocked)
-
 ### API Endpoints Used
 
 **POST /api/send-messages** - Send messages via AWS
