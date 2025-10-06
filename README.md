@@ -494,5 +494,6 @@ gym-membership/
 ├── package.json              # Dependencies
 └── README.md                 # This file
 ```
-VIDEO DEMONSTRATION
-## 🎥 Video Demonstration[![Watch the video](https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg)](https://youtu.be/oeXUYSBskTA)---
+## VIDEO DEMONSTRATION
+(https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg)](https://youtu.be/oeXUYSBskTA)
+---
