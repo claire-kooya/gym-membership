@@ -495,5 +495,4 @@ gym-membership/
 └── README.md                 # This file
 ```
 VIDEO DEMONSTRATION
-[![Watch the video](thumbnail.jpg)](https://youtu.be/oeXUYSBskTA)
----
+## 🎥 Video Demonstration[![Watch the video](https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg)](https://youtu.be/oeXUYSBskTA)---
