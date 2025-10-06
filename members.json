@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "first_name": "John",
+    "last_attended_at": "2025-09-25",
+    "membership_status": "active",
+    "is_recurring": true,
+    "phone": "+155555501",
+    "email": "john@example.com"
+  },
+  {
+    "id": 2,
+    "first_name": "Sarah",
+    "last_attended_at": "2025-08-15",
+    "membership_status": "active",
+    "is_recurring": true,
+    "phone": "+155555502",
+    "email": "sarah@example.com"
+  },
+  {
+    "id": 3,
+    "first_name": "Mike",
+    "last_attended_at": "2025-09-20",
+    "membership_status": "active",
+    "is_recurring": false,
+    "phone": "+155555503",
+    "email": "mike@example.com"
+  },
+  {
+    "id": 4,
+    "first_name": "Emma",
+    "last_attended_at": "2025-09-28",
+    "membership_status": "frozen",
+    "is_recurring": true,
+    "phone": "+155555504",
+    "email": "emma@example.com"
+  },
+  {
+    "id": 5,
+    "first_name": "Claire",
+    "last_attended_at": "2025-09-15",
+    "membership_status": "active",
+    "is_recurring": true,
+    "phone": "+639999255056",
+    "email": "ycymortos@gmail.com"
+  },
+  {
+    "id": 6,
+    "first_name": "Lisa",
+    "last_attended_at": "2025-09-01",
+    "membership_status": "canceled",
+    "is_recurring": false,
+    "phone": "+155555506",
+    "email": "lisa@example.com"
+  },
+  {
+    "id": 7,
+    "first_name": "Tom",
+    "last_attended_at": "2025-09-27",
+    "membership_status": "active",
+    "is_recurring": true,
+    "phone": "+155555507",
+    "email": "tom@example.com"
+  },
+  {
+    "id": 8,
+    "first_name": "Rachel",
+    "last_attended_at": "2025-09-18",
+    "membership_status": "active",
+    "is_recurring": false,
+    "phone": "+155555508",
+    "email": "rachel@example.com"
+  },
+  {
+    "id": 9,
+    "first_name": "Chris",
+    "last_attended_at": "2025-07-20",
+    "membership_status": "active",
+    "is_recurring": true,
+    "phone": "+155555509",
+    "email": "chris@example.com"
+  },
+  {
+    "id": 10,
+    "first_name": "Anna",
+    "last_attended_at": "2025-09-29",
+    "membership_status": "active",
+    "is_recurring": true,
+    "phone": "+155555510",
+    "email": "anna@example.com"
+  }
+]

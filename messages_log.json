@@ -1,0 +1,55 @@
+[
+  {
+    "timestamp": "2025-10-06T04:39:38.360Z",
+    "eligible_count": 6,
+    "skipped_count": 4,
+    "eligible_members": [
+      {
+        "id": 1,
+        "name": "John"
+      },
+      {
+        "id": 3,
+        "name": "Mike"
+      },
+      {
+        "id": 5,
+        "name": "Claire"
+      },
+      {
+        "id": 7,
+        "name": "Tom"
+      },
+      {
+        "id": 8,
+        "name": "Rachel"
+      },
+      {
+        "id": 10,
+        "name": "Anna"
+      }
+    ],
+    "skipped_members": [
+      {
+        "id": 2,
+        "name": "Sarah",
+        "reason": "Manual follow-up needed (>35 days, recurring)"
+      },
+      {
+        "id": 4,
+        "name": "Emma",
+        "reason": "Membership is frozen"
+      },
+      {
+        "id": 6,
+        "name": "Lisa",
+        "reason": "Membership is canceled"
+      },
+      {
+        "id": 9,
+        "name": "Chris",
+        "reason": "Manual follow-up needed (>35 days, recurring)"
+      }
+    ]
+  }
+]

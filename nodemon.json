@@ -1,0 +1,6 @@
+{
+  "watch": ["server"],
+  "ext": "js,json",
+  "ignore": ["messages_log.json"],
+  "exec": "node server/index.js"
+}
