@@ -144,8 +144,6 @@ The application includes full integration with **Amazon SNS** (for SMS) and **Am
 3. Complete registration (credit card required, but free tier available)
 4. Sign in to AWS Management Console
 
-**Screenshot needed**: AWS Console homepage
-
 ### Step 2: Create IAM User with Permissions
 
 1. In AWS Console, search for **"IAM"**
@@ -157,7 +155,7 @@ The application includes full integration with **Amazon SNS** (for SMS) and **Am
    - `AmazonSESFullAccess`
 6. Click **"Create user"**
 
-**Screenshot needed**: IAM user with policies attached
+<img width="1861" height="857" alt="image" src="https://github.com/user-attachments/assets/ba85d38f-3720-4db1-a7e1-b47e91b0d62f" />
 
 ### Step 3: Generate Access Keys
 
@@ -169,10 +167,6 @@ The application includes full integration with **Amazon SNS** (for SMS) and **Am
 6. **SAVE BOTH**:
    - Access Key ID: `AKIAXXXXXXXXXXXXXXXX`
    - Secret Access Key: `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
-
-⚠️ **Important**: The secret key is only shown once!
-
-**Screenshot needed**: Access key created (hide secret key!)
 
 ### Step 4: Set Up Amazon SES (Email)
 
@@ -186,8 +180,7 @@ The application includes full integration with **Amazon SNS** (for SMS) and **Am
 8. Status should show **"Verified"**
 
 **Important**: In sandbox mode, you must verify BOTH sender and recipient emails.
-
-**Screenshot needed**: Verified email identity in SES console
+<img width="1854" height="856" alt="image" src="https://github.com/user-attachments/assets/d3965a23-fa52-4114-95be-9ee2eb3ce8c2" />
 
 ### Step 5: Configure the Application
 
